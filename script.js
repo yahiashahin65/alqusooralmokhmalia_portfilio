@@ -1,26 +1,20 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+// Function to add a smooth fade-in effect when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    const socialCards = document.querySelectorAll('.social-card');
+    
+    // Set initial opacity
+    socialCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        // Delay each card's animation for a staggered effect
+        setTimeout(() => {
+            card.style.transition = 'all 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 200 * index);
     });
 });
 
-// Simple animation when cards enter the viewport
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'all 0.6s ease-out';
-    observer.observe(card);
-});
+// Log for developer tracking
+console.log("Al-Qusoor Al-Mokhmalia Landing Page Loaded Successfully.");
