@@ -200,6 +200,16 @@ body {
     z-index: 1001;
 }
 
+/* This will remove the underline from all links, including the WhatsApp button */
+a {
+    text-decoration: none; /* Removes the line under the link */
+}
+
+/* If you want to make sure it's removed specifically for the WhatsApp button */
+.whatsapp-btn, .btn {
+    text-decoration: none;
+}
+
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2rem;
@@ -272,5 +282,6 @@ body {
         margin-bottom: 8px;
     }
 }
+
 
 
