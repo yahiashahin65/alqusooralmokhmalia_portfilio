@@ -24,3 +24,19 @@ document.querySelectorAll('.card').forEach(card => {
     card.style.transition = 'all 0.6s ease-out';
     observer.observe(card);
 });
+
+// Ensure buttons respond quickly on mobile touch
+document.querySelectorAll('.btn, .link-card').forEach(button => {
+    button.addEventListener('touchstart', function() {
+        this.style.opacity = '0.7';
+    });
+    
+    button.addEventListener('touchend', function() {
+        this.style.opacity = '1';
+    });
+});
+
+/* Comments: This script improves the tactile feel 
+   of the landing page on mobile devices. */
+
+
